@@ -7,6 +7,8 @@ import javafx.beans.property.StringProperty;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
 @Builder
 public class TableLog {
@@ -16,4 +18,5 @@ public class TableLog {
     private String logger;
     private String thread;
     private String message;
+    private List<String> details;
 }

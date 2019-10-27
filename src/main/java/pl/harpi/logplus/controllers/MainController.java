@@ -51,6 +51,9 @@ public class MainController {
     private TableView<TableLog> tableView;
 
     @FXML
+    private TextArea ttaaDetails;
+
+    @FXML
     public void initialize() {
         if (treeView.getRoot() == null) {
             treeView.setRoot(new TreeItem<>(new TreeNodeRoot()));
@@ -106,9 +109,20 @@ public class MainController {
                                     .logger(item.getLogger())
                                     .thread(item.getThread())
                                     .message(item.getMessage())
+                                    .details(item.getDetails())
                                     .build());
                 }
             }
+        });
+
+        tableView.getSelectionModel().selectedItemProperty().addListener((observableValue, tableLog, t1) -> {
+            StringBuilder builder = new StringBuilder();
+            if (tableView.getSelectionModel() != null && tableView.getSelectionModel().getSelectedItem() != null) {
+                for (var detail : tableView.getSelectionModel().getSelectedItem().getDetails()) {
+                    builder.append(detail).append("\n");
+                }
+            }
+            ttaaDetails.setText(builder.toString());
         });
     }
 

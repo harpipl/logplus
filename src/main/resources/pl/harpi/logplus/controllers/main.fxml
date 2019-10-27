@@ -106,7 +106,7 @@
                                 </VBox>
                                 <VBox>
                                     <children>
-                                        <TextArea prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
+                                        <TextArea fx:id="ttaaDetails" prefHeight="200.0" prefWidth="200.0" editable="false" VBox.vgrow="ALWAYS"/>
                                     </children>
                                 </VBox>
                             </items>
