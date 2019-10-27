@@ -59,7 +59,7 @@ public class MainController {
         EventHandler<WindowEvent> eventShowing = e -> {
             TreeItem<TreeNode> selectedItem = treeView.getSelectionModel().getSelectedItem();
 
-            if (selectedItem.getValue() instanceof TreeNodeRoot) {
+            if (selectedItem == null || selectedItem.getValue() instanceof TreeNodeRoot) {
                 miOpenLogFile.setVisible(true);
                 miReloadFile.setVisible(false);
                 miEditFilter.setVisible(false);
@@ -80,7 +80,6 @@ public class MainController {
                 miCloseView.setVisible(true);
                 return;
             }
-
             miOpenLogFile.setVisible(false);
             miReloadFile.setVisible(false);
             miEditFilter.setVisible(true);
