@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import pl.harpi.logplus.FormattedTableCellFactory?>
+<VBox prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pl.harpi.logplus.controllers.MainController">
+    <children>
+        <SplitPane dividerPositions="0.2" VBox.vgrow="ALWAYS">
+            <items>
+                <VBox>
+                    <children>
+                        <TreeView fx:id="treeView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                            <contextMenu>
+                                <ContextMenu fx:id="treeViewCM">
+                                    <items>
+                                        <MenuItem fx:id="miOpenLogFile" onAction="#onOpenLogFile" text="Open Log File..."/>
+                                        <MenuItem fx:id="miReloadFile" onAction="#onReloadFile" text="Reload File"/>
+                                        <MenuItem fx:id="miEditFilter" onAction="#onEditFilter" text="Edit Filter"/>
+                                        <SeparatorMenuItem fx:id="smiFilter"/>
+                                        <Menu fx:id="mnAddFilter" text="Add Filter">
+                                            <MenuItem onAction="#onFilterDateTime" text="Date Time Filter"/>
+                                            <MenuItem onAction="#onFilterLogLevel" text="Log Level Filter"/>
+                                            <MenuItem onAction="#onFilterLogger" text="Logger Filter"/>
+                                            <MenuItem onAction="#onFilterThread" text="Thread Filter"/>
+                                            <MenuItem onAction="#onFilterText" text="Text Filter"/>
+                                        </Menu>
+                                        <SeparatorMenuItem/>
+                                        <MenuItem fx:id="miCloseAll" onAction="#onCloseAll" text="Close All"/>
+                                        <MenuItem fx:id="miCloseAllButThis" onAction="#onCloseAllButThis" text="Close All But This"/>
+                                        <MenuItem fx:id="miCloseView" onAction="#onCloseView" text="Close View"/>
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </TreeView>
+                    </children>
+                </VBox>
+                <VBox prefHeight="654.0" prefWidth="720.0">
+                    <children>
+                        <SplitPane dividerPositions="0.8" orientation="VERTICAL" VBox.vgrow="ALWAYS">
+                            <items>
+                                <VBox>
+                                    <children>
+                                        <TableView fx:id="tableView" prefHeight="321.0" prefWidth="645.0"
+                                                   VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn editable="false" prefWidth="80.0" sortable="false"
+                                                             text="Date">
+                                                    <cellFactory>
+                                                        <FormattedTableCellFactory/>
+                                                    </cellFactory>
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="date"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn editable="false" prefWidth="84.0" sortable="false"
+                                                             text="Time">
+                                                    <cellFactory>
+                                                        <FormattedTableCellFactory/>
+                                                    </cellFactory>
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="time"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn editable="false" prefWidth="80.0" sortable="false"
+                                                             text="Level">
+                                                    <cellFactory>
+                                                        <FormattedTableCellFactory/>
+                                                    </cellFactory>
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="level"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn editable="false" prefWidth="320.0" sortable="false"
+                                                             text="Logger">
+                                                    <cellFactory>
+                                                        <FormattedTableCellFactory/>
+                                                    </cellFactory>
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="logger"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn editable="false" prefWidth="140.0" sortable="false"
+                                                             text="Thread">
+                                                    <cellFactory>
+                                                        <FormattedTableCellFactory/>
+                                                    </cellFactory>
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="thread"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn editable="false" prefWidth="1000.0" sortable="false"
+                                                             text="Message">
+                                                    <cellFactory>
+                                                        <FormattedTableCellFactory/>
+                                                    </cellFactory>
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="message"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                                <VBox>
+                                    <children>
+                                        <TextArea prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
+                                    </children>
+                                </VBox>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </VBox>
+            </items>
+        </SplitPane>
+    </children>
+</VBox>

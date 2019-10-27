@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="191.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.harpi.logplus.controllers.FilterDateTimeController">
+   <children>
+      <Label layoutX="27.0" layoutY="41.0" text="From:" />
+      <DatePicker fx:id="dtprDateFrom" layoutX="72.0" layoutY="37.0" prefHeight="25.0" prefWidth="151.0" />
+      <TextField fx:id="txfdTimeFrom" layoutX="230.0" layoutY="37.0" prefHeight="25.0" prefWidth="98.0" text="00:00:00,000" />
+      <Label layoutX="27.0" layoutY="77.0" text="To:" />
+      <DatePicker fx:id="dtprDateTo" layoutX="72.0" layoutY="73.0" prefHeight="25.0" prefWidth="151.0" />
+      <TextField fx:id="txfdTimeTo" layoutX="230.0" layoutY="73.0" prefHeight="25.0" prefWidth="98.0" text="23:59:59,999" />
+      <CheckBox fx:id="chbxExclude" layoutX="27.0" layoutY="116.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="173.0" text="Exclude matching entries?" />
+      <Separator layoutX="33.0" layoutY="106.0" prefHeight="4.0" prefWidth="348.0" />
+      <Button fx:id="btnApply" layoutX="189.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Apply" />
+      <Button fx:id="btnCancel" layoutX="289.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Cancel" />
+   </children>
+</AnchorPane>
