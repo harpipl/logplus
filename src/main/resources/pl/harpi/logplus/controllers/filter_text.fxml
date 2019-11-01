@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="190.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.harpi.logplus.controllers.FilterTextController">
+    <Label layoutX="33.0" layoutY="41.0" text="Text to find:" />
+    <TextField fx:id="ttfdText" layoutX="33.0" layoutY="58.0" prefHeight="25.0" prefWidth="348.0" />
+    <CheckBox fx:id="chbxExclude" layoutX="27.0" layoutY="116.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="173.0" text="Exclude matching entries?" />
+    <Separator layoutX="33.0" layoutY="106.0" prefHeight="4.0" prefWidth="348.0" />
+    <Button fx:id="btnApply" layoutX="189.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Apply" />
+    <Button fx:id="btnCancel" layoutX="289.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Cancel" />
+</AnchorPane>

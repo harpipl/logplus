@@ -245,6 +245,7 @@ public class MainController {
                     ((TreeNodeLevel) selectedItem.getValue()).setParameters(output);
                     treeView.getSelectionModel().select(null);
                     treeView.getSelectionModel().select(selectedItem);
+                    treeView.refresh();
                     tableView.scrollTo(0);
                 }
             } else if (selectedItem.getValue() instanceof TreeNodeLogger) {
@@ -254,6 +255,7 @@ public class MainController {
                     ((TreeNodeLogger) selectedItem.getValue()).setParameters(output);
                     treeView.getSelectionModel().select(null);
                     treeView.getSelectionModel().select(selectedItem);
+                    treeView.refresh();
                     tableView.scrollTo(0);
                 }
             } else if (selectedItem.getValue() instanceof TreeNodeThread) {
@@ -263,6 +265,17 @@ public class MainController {
                     ((TreeNodeThread) selectedItem.getValue()).setParameters(output);
                     treeView.getSelectionModel().select(null);
                     treeView.getSelectionModel().select(selectedItem);
+                    treeView.refresh();
+                    tableView.scrollTo(0);
+                }
+            } else if (selectedItem.getValue() instanceof TreeNodeText) {
+                TreeNodeText treeNode = (TreeNodeText) selectedItem.getValue();
+                FilterTextController.Result output = new FilterTextController().showAndWait(treeNode.getParameters(), "Create Text Filter");
+                if (output != null) {
+                    ((TreeNodeText) selectedItem.getValue()).setParameters(output);
+                    treeView.getSelectionModel().select(null);
+                    treeView.getSelectionModel().select(selectedItem);
+                    treeView.refresh();
                     tableView.scrollTo(0);
                 }
             }
@@ -320,5 +333,15 @@ public class MainController {
 
     @FXML
     private void onFilterText(ActionEvent actionEvent) {
+        TreeItem<TreeNode> selectedItem = treeView.getSelectionModel().getSelectedItem();
+        FilterTextController.Result input = new FilterTextController.Result(null, false);
+        FilterTextController.Result output = new FilterTextController().showAndWait(input, "Create Text Filter");
+
+        if (output != null) {
+            TreeItem<TreeNode> treeItem = new TreeItem<>(new TreeNodeText(selectedItem.getValue(), output));
+            selectedItem.getChildren().add(treeItem);
+            treeView.getSelectionModel().select(treeItem);
+            tableView.scrollTo(0);
+        }
     }
 }
