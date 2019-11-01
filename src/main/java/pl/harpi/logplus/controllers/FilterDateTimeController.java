@@ -110,8 +110,8 @@ public class FilterDateTimeController implements Controllable<FilterDateTimeCont
         chbxExclude.setSelected(filter.exclude);
     }
 
-    @Getter
     @AllArgsConstructor
+    @Getter
     public static class Filter {
         private Date dateFrom;
         private Date dateTo;

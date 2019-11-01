@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="191.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.harpi.logplus.controllers.FilterDateTimeController">
+<AnchorPane prefHeight="191.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.harpi.logplus.controllers.FilterDateTimeController">
    <children>
       <Label layoutX="27.0" layoutY="41.0" text="From:" />
       <DatePicker fx:id="dtprDateFrom" layoutX="72.0" layoutY="37.0" prefHeight="25.0" prefWidth="151.0" />

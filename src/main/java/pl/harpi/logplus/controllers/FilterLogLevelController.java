@@ -78,7 +78,7 @@ public class FilterLogLevelController implements Controllable<FilterLogLevelCont
 
         chbxExclude.setSelected(result.isExclude());
 
-        for (String level: result.getLevels()) {
+        for (String level : result.getLevels()) {
             switch (level) {
                 case "INFO":
                     chbxInfo.setSelected(true);
@@ -109,8 +109,8 @@ public class FilterLogLevelController implements Controllable<FilterLogLevelCont
         return "filter_log_level.fxml";
     }
 
-    @Getter
     @AllArgsConstructor
+    @Getter
     public static class Result {
         private List<String> levels;
         private boolean exclude;

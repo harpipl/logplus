@@ -1,16 +1,14 @@
 package pl.harpi.logplus;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 import java.util.List;
 
-@Getter
+@AllArgsConstructor
 @Builder
+@Getter
 public class TableLog {
     private String date;
     private String time;

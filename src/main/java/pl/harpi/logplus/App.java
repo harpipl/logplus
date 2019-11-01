@@ -21,7 +21,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         App.stage = stage;
-        var scene = new Scene(new FXMLLoader(MainController.class.getResource("main.fxml")).load(), 1024, 768);
+        Scene scene = new Scene(new FXMLLoader(MainController.class.getResource("main.fxml")).load(), 1024, 768);
         scene.getStylesheets().add(MainController.class.getResource("styles.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("Log++");

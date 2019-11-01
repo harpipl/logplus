@@ -10,6 +10,7 @@ import org.apache.commons.lang3.time.DateUtils;
 import pl.harpi.logplus.*;
 import pl.harpi.logplus.services.LogItem;
 
+import java.io.File;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -98,9 +99,9 @@ public class MainController {
             if (newValue != null) {
                 tableView.getItems().clear();
 
-                var value = newValue.getValue();
+                TreeNode value = newValue.getValue();
 
-                for (var item : value.getItems()) {
+                for (LogItem item : value.getItems()) {
                     tableView.getItems().add(
                             TableLog.builder()
                                     .date(item.getDate())
@@ -118,7 +119,7 @@ public class MainController {
         tableView.getSelectionModel().selectedItemProperty().addListener((observableValue, tableLog, t1) -> {
             StringBuilder builder = new StringBuilder();
             if (tableView.getSelectionModel() != null && tableView.getSelectionModel().getSelectedItem() != null) {
-                for (var detail : tableView.getSelectionModel().getSelectedItem().getDetails()) {
+                for (String detail : tableView.getSelectionModel().getSelectedItem().getDetails()) {
                     builder.append(detail).append("\n");
                 }
             }
@@ -128,10 +129,10 @@ public class MainController {
 
     @FXML
     private void onOpenLogFile() {
-        var fileChooser = new FileChooser();
-        var selectedFiles = fileChooser.showOpenMultipleDialog(App.getStage());
+        FileChooser fileChooser = new FileChooser();
+        List<File> selectedFiles = fileChooser.showOpenMultipleDialog(App.getStage());
         if (selectedFiles != null) {
-            for (var file : selectedFiles) {
+            for (File file : selectedFiles) {
                 TreeItem<TreeNode> treeItem = new TreeItem<>(new TreeNodeFile(file));
                 treeView.getRoot().getChildren().add(treeItem);
                 treeView.getSelectionModel().select(treeItem);

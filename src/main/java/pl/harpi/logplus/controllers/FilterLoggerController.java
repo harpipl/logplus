@@ -109,8 +109,8 @@ public class FilterLoggerController implements Controllable<FilterLoggerControll
         return "filter_logger.fxml";
     }
 
-    @Getter
     @AllArgsConstructor
+    @Getter
     public static class Result {
         private List<String> availableLoggers;
         private List<String> selectedLoggers;

@@ -23,7 +23,7 @@ public class FormattedTableCellFactory<S, T> implements Callback<TableColumn<Tab
 
                 String style = "levelOther";
                 if (getTableRow() != null) {
-                    TableLog log = getTableRow().getItem();
+                    TableLog log = (TableLog) getTableRow().getItem();
                     if (log != null) {
                         switch (log.getLevel()) {
                             case "INFO":

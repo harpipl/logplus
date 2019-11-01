@@ -27,7 +27,7 @@ public interface Controllable<INPUT, OUTPUT, CTRL extends Controllable<INPUT, OU
             e.printStackTrace();
         }
 
-        var stage = new Stage();
+        Stage stage = new Stage();
         stage.setScene(scene);
         stage.initOwner(App.getStage());
         stage.initModality(Modality.APPLICATION_MODAL);

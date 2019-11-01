@@ -39,10 +39,10 @@ public class TreeNodeThread extends TreeNode {
         List<LogItem> result = new ArrayList<>();
 
         if (parameters.isExclude()) {
-            for (var item: parent.getItems()) {
+            for (LogItem item: parent.getItems()) {
                 boolean fit = true;
 
-                for (var level: parameters.getSelectedLoggers()) {
+                for (String level: parameters.getSelectedLoggers()) {
                     if (item.getThread().equals(level)) {
                         fit = false;
                         break;
@@ -54,10 +54,10 @@ public class TreeNodeThread extends TreeNode {
                 }
             }
         } else {
-            for (var item: parent.getItems()) {
+            for (LogItem item: parent.getItems()) {
                 boolean fit = false;
 
-                for (var level: parameters.getSelectedLoggers()) {
+                for (String level: parameters.getSelectedLoggers()) {
                     if (item.getThread().equals(level)) {
                         fit = true;
                         break;
