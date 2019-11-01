@@ -7,7 +7,7 @@
 }
 
 .levelWarn {
-    -fx-text-fill: rgb(250, 130, 0);
+    -fx-text-fill: rgb(250, 80, 0);
 }
 
 .levelError {

@@ -1,5 +1,7 @@
 package pl.harpi.logplus.controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -55,7 +57,20 @@ public class MainController {
     private TextArea ttaaDetails;
 
     @FXML
+    private SplitPane splitPane;
+
+    @FXML
     public void initialize() {
+        App.getStage().showingProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (newValue) {
+                    splitPane.setDividerPositions(0.15);
+                    observable.removeListener(this);
+                }
+            }
+        });
+
         if (treeView.getRoot() == null) {
             treeView.setRoot(new TreeItem<>(new TreeNodeRoot()));
         }

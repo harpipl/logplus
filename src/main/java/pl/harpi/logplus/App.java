@@ -2,7 +2,9 @@ package pl.harpi.logplus;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import pl.harpi.logplus.controllers.MainController;
 
@@ -21,10 +23,18 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         App.stage = stage;
-        Scene scene = new Scene(new FXMLLoader(MainController.class.getResource("main.fxml")).load(), 1024, 768);
+
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        FXMLLoader loader = new FXMLLoader(MainController.class.getResource("main.fxml"));
+        Scene scene = new Scene(loader.load());
         scene.getStylesheets().add(MainController.class.getResource("styles.css").toExternalForm());
         stage.setScene(scene);
+        stage.setWidth(bounds.getWidth());
+        stage.setHeight(bounds.getHeight());
         stage.setTitle("Log++");
+
         stage.show();
     }
 
