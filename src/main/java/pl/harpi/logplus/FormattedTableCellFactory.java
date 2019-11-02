@@ -4,22 +4,22 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 
-public class FormattedTableCellFactory<S, T> implements Callback<TableColumn<TableLog, T>, TableCell<TableLog, T>> {
+public class FormattedTableCellFactory implements Callback<TableColumn<TableLog, String>, TableCell<TableLog, String>> {
 
     public FormattedTableCellFactory() {
     }
 
     @Override
-    public TableCell<TableLog, T> call(TableColumn<TableLog, T> p) {
-        TableCell<TableLog, T> cell = new TableCell<TableLog, T>() {
+    public TableCell<TableLog, String> call(TableColumn<TableLog, String> p) {
+        return new TableCell<TableLog, String>() {
             @Override
-            protected void updateItem(Object item, boolean empty) {
+            protected void updateItem(String item, boolean empty) {
                 getStyleClass().remove("levelInfo");
                 getStyleClass().remove("levelWarn");
                 getStyleClass().remove("levelError");
                 getStyleClass().remove("levelOther");
 
-                super.updateItem((T) item, empty);
+                super.updateItem(item, empty);
 
                 String style = "levelOther";
                 if (getTableRow() != null) {
@@ -41,9 +41,8 @@ public class FormattedTableCellFactory<S, T> implements Callback<TableColumn<Tab
 
                 getStyleClass().add(style);
 
-                setText(getItem() == null ? "" : getItem().toString());
+                setText(getItem() == null ? "" : getItem());
             }
         };
-        return cell;
     }
 }
